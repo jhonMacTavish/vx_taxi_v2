@@ -1,0 +1,13 @@
+<!--components/bltboard/bltboard.wxml-->
+<view class="announce_box">
+  <navigator style="width: 680rpx; height: 80rpx; line-height: 80rpx; display: inline-block; overflow: hidden;" url="/pages/announce/announce">
+    <image style="position: relative; top: -8rpx; margin-right: 12rpx;" class="announce_log" src="../../imgs/公告.png"></image>
+    <view class="announce_text_wrap">
+      <!-- <view class='announce_text' animation="{{animationData}}"><text id="text">{{text}}</text></view> -->
+      <view class='announce_text' animation="{{animationData}}">
+        <rich-text nodes="{{text}}"></rich-text>
+      </view>
+    </view>
+  </navigator>
+  <image class="announce_log" bindtap="logout" src="../../imgs/logout.png"></image>
+</view>

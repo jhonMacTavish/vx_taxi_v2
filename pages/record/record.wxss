@@ -1,0 +1,254 @@
+/* pages/userInfo/userInfo.wxss */
+.search_box {
+  border-radius: 20rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 20rpx 10rpx 0 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.search_box .search_ipt {
+  height: 80rpx;
+  flex: 1;
+  padding-left: 10rpx;
+  /* border: solid 2rpx rgba(128, 128, 128, 1); */
+  overflow: hidden;
+}
+
+.search_box .search_icon {
+  position: absolute;
+  width: 100rpx;
+  height: 80rpx;
+  top: -2rpx;
+  right: 160rpx;
+}
+
+.search_icon image {
+  position: relative;
+  top: 21%;
+  left: 21%;
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.search_box .search_btn {
+  height: 82rpx;
+  width: 150rpx;
+  margin-left: 10rpx;
+  background-color: rgb(248, 248, 248);
+  border-radius: 20rpx;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.search_btn image {
+  position: relative;
+  top: 21%;
+  left: 31%;
+  opacity: 1;
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.driver-info-box {
+  position: relative;
+  margin: 20rpx 10rpx 0 10rpx;
+  padding: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 240rpx;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10rpx;
+}
+
+.driver-info-box .detail-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.detail-box .carid {
+  padding-top: 16rpx;
+  height: 30%;
+  width: 100%;
+}
+
+.detail-box .carid text:nth-child(1) {
+  margin-left: 10rpx;
+  display: inline-block;
+  width: 60px;
+}
+
+.detail-box .drivers {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.drivers .title {
+  width: 66px;
+  height: 100%;
+}
+
+.drivers name-box {
+  flex: 1;
+  height: 100%;
+}
+
+.drivers .title {
+  margin-right: 4px;
+  width: 115rpx !important;
+}
+
+.drivers .title text {
+  margin-left: 10rpx;
+  font-size: 16px;
+}
+
+.drivers .name-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.drivers .item-box{
+  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.drivers .name-box .item-box .name{
+  width: 135rpx;
+  margin-right: 5rpx;
+  text-align: right;
+}
+
+.driver-info-box .seal-box {
+  position: relative;
+  width: 30%;
+}
+
+.seal-box .seal-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 172rpx;
+  height: 172rpx;
+}
+
+.seal-wrap .seal {
+  width: 160rpx;
+  height: 160rpx;
+  border: solid 6rpx #CC0000;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display: inline-block; */
+  /* position: absolute;
+  right: 10rpx;top: 22rpx; */
+}
+
+.seal .seal-son {
+  width: 145rpx;
+  height: 145rpx;
+  border: solid 2rpx #CC0000;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.airport-info-title{
+  margin: 20rpx 10rpx 0 10rpx;
+  font-size:38rpx;
+}
+
+.taxi-info-box {
+  flex: 1;
+  margin: 20rpx 10rpx 10rpx 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 600rpx;
+  border-radius: 6px;
+}
+
+.taxi-info-box scroll-view:nth-child(1) {
+  margin-right: 10rpx;
+  margin-bottom: 20px;
+  width: 50%;
+  height: 98.2%;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 4px;
+  border-radius: 6px;
+}
+.taxi-info-box scroll-view:nth-child(2) {
+  margin-left: 10rpx;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 1);
+  height: 98.2%;
+  padding: 4px;
+  border-radius: 6px;
+}
+.taxi-info-box scroll-view:nth-child(2) .carlist-box {
+  height: 100%;
+}
+.taxi-info-box scroll-view:nth-child(2) .carlist-box text{
+  margin-left: 60rpx;
+  display: inline-block;
+  height: 60rpx;
+  width: auto;
+}
+
+scroll-view .one {
+  position: relative;
+  padding-bottom: 62rpx;
+}
+
+.one .onedot {
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  background-color: #67c23a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.one .oneline {
+  position: absolute;
+  left: 10rpx;
+  height: 100%;
+  border-left: 2px solid #e4e7ed;
+}
+
+.one .onemain {
+  position: relative;
+  padding-left: 46rpx;
+  top: -6rpx;
+}
+
+.onemain .onemaintitle {
+  margin-bottom: 16rpx;
+  padding-top: 18rpx;
+  color: #909399;
+  line-height: 1;
+  font-size: 26rpx;
+}
+
+.onemain .onemaincon {
+  color: #303133;
+}

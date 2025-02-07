@@ -1,0 +1,20 @@
+<!--pages/eligibtDetial/eligibtDetial.wxml-->
+<view class="container_bg">
+  <view class="container" style="padding-bottom: 80rpx;">
+    <bltboard></bltboard>
+    <view class="title">
+      24小时内近程补偿使用情况
+    </view>
+    <!-- <view class="content_item"></view> -->
+    <scroll-view class="scroll-box" scroll-y="true" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+      <view class="content_item" wx:for="{{listData}}" wx:for-index="index" wx:key="id">
+        <view style="position: absolute; right: 10px;">{{index+1}}</view>
+        <view>车牌号：<text>{{item.CAR_ID}}</text></view>
+        <view>驶出航站楼时间：<text>{{item.TERMINAL_OUT_TIME}}</text></view>
+        <view>打表里程：<text>{{item.RUN_ODOMETER}} km</text></view>
+        <view>资格获得方式：<text>{{item.PD == "system" ? "计价器数据" : "票据信息"}}</text></view>
+      </view>
+    </scroll-view>
+  </view>
+  <tabbar />
+</view>

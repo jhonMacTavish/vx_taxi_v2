@@ -1,0 +1,30 @@
+<!--pages/aiportInfo/parkData.wxml-->
+<view class="container_bg">
+  <view class="container" style="height: {{height}}px;">
+    <bltboard></bltboard>
+    <view class="dashboard_box">
+      <view class="dashboard_item">
+        <canvas canvas-id="circle" style="width:100%;height:100%; position: relative;"></canvas>
+      </view>
+      <view class="dashboard_item">
+        <canvas canvas-id="circle2" style="width:100%;height:100%; position: relative;"></canvas>
+      </view>
+    </view>
+    <view class="dashboard_count"><text>蓄车场车辆总数：{{parkData[2].NUM}}</text></view>
+    <view style="margin: 20rpx 10rpx 0 10rpx; font-size: 38rpx;">
+      <text>候客区</text>
+    </view>
+    <view class="channel_box">
+      <scroll-view class="scroll-box" scroll-y="true" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <view class="content_item" wx:for="{{channelData}}" wx:key="id">
+          <text class="channel">{{item.poolid}}</text>
+          <view class="progress-box">
+            <progress class="progress" percent="{{item.NUM / 50 * 100}}" active="true" stroke-width="26rpx" border-radius="6rpx" active-mode="forwards" />
+            <text class="number">{{item.NUM }} 辆</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <tabbar />
+</view>

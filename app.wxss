@@ -1,0 +1,58 @@
+/**app.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+  overflow: hidden
+}
+.container_bg{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #F2F2F2;
+}
+.container {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  bottom: 10rpx;
+  left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: #F2F2F2;
+  overflow: hidden;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.announce_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80rpx;
+  background-color: #f1f1f1;
+}
+.announce_log{
+  box-sizing: border-box;
+  padding: 10rpx;
+  height: 60rpx;
+  width: 60rpx;
+}
+.announce_text_wrap{
+  width: 84%;
+  align-content: center;
+  justify-content: space-between;
+  padding: 10rpx 25rpx;
+  overflow: hidden;
+}
+.announce_text{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 60rpx;
+  width: 640rpx;
+  /* background: #f1f1f1; */
+  color: #5e5e5e;
+  white-space: nowrap;
+  font-size: 28rpx;
+}
+
+

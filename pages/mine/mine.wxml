@@ -1,0 +1,97 @@
+<!--pages/manager/manager.wxml-->
+<view class="container_bg">
+  <view class="container" style="height: {{height}}px;">
+    <bltboard></bltboard>
+    <!-- <view style="margin: 20rpx;background-color: rgba(255, 255, 255, 1);box-shadow: 0rpx 2rpx 8rpx rgba(0, 0, 0, 0.1);border-radius: 20rpx;">
+      <view class="info_box">
+        <view bindtap="buttonclick" class="carNo">
+          <text wx:if="{{!imgSrc}}" style="display: inline-block;width: 100%; ;text-align: center;">点击上传图片</text>
+          <image wx:else="" style="width: 100px; height: 100px;" src="{{imgSrc}}" />
+        </view>
+        <view class="qrNo">
+          <view wx:if="{{appealed}}" class="seal-box">
+            <view class="seal-wrap" wx:if="{{judged!=null}}">
+              <view class="seal">
+                <view class="seal-son">
+                  <span style="position: absolute;top: 48rpx;text-align: center;font-size: 33rpx;right: 24rpx;color: {{judged==0?'#B4B4B4':'red'}};font-weight: 600;">{{judged==1? '已通过': judged==-1?'未通过':'未审核'}}</span>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view>
+            <text>压表时间</text>
+            <view bindtap='onYMDhms' style="display: flex;border-radius: 10rpx; border: 1px solid rgba(0, 0, 0, 0.3);height: 50rpx;line-height: 50rpx; padding-left: 10rpx;">
+              <text>{{dateText}}</text>
+              <date-picker bind:datePickerCancellEvent="datePickerCancellEvent" bind:datePickerOkEvent="datePickerOkEvent" isShowDatePicker="{{isShowPicker}}" mode="YMDhms" data="{{data}}" date="{{date}}">
+              </date-picker>
+            </view>
+          </view>
+          <view>
+            <text>行驶里程</text>
+            <picker style="border-radius: 10rpx; border: 1px solid rgba(0, 0, 0, 0.3);height: 50rpx;line-height: 50rpx; padding-left: 10rpx; text-align: center;" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker">
+                {{array[index]}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view>
+        <button disabled="{{appealed}}" bindtap="upload" type="primary" style="height: 80rpx !important;margin-bottom: 10rpx;">补偿申报</button>
+      </view>
+      <view style="margin-bottom: 20rpx;padding: 0 20rpx;">
+        在机场接客后，路程在30 km内的接客单，可提交申请。(注:每月只有一次申报机会)
+      </view>
+    </view> -->
+    <view class="info-section">
+      <view class="info_box">
+        <view class="carNo">
+          <view style="text-align: center; font-size: 36rpx;">车辆信息</view>
+          <view style="text-align: center; font-size: 36rpx;">{{carid}}</view>
+        </view>
+        <view class="qrNo">
+          <canvas style="width: 100px; height: 100px;margin:0 auto" canvas-id="myQrcode">
+          </canvas>
+        </view>
+      </view>
+      <view class="logout">
+        <label bindtap="user_delete">注 销 账 号</label>
+      </view>
+    </view>
+    <view class="airport-info-title">
+      <view>来访详情</view>
+      <view>车队详情</view>
+    </view>
+    <view class="taxi-info-box">
+      <scroll-view scroll-y="true">
+        <view wx:for="{{list}}" wx:key="index" class="one">
+          <view class="onedot"></view>
+          <view wx:if="{{index!=list.length-1}}" class="oneline"></view>
+          <view class="onemain">
+            <view class="onemaincon" style="font-size: 36rpx;">{{item.con}}</view>
+            <view class="onemaintitle">{{item.time?item.time:'没有时间记录'}}</view>
+          </view>
+        </view>
+      </scroll-view>
+      <scroll-view scroll-y="true">
+        <!-- <view wx:if="{{convoy.length == 0}}" style="position: relative; top: 50%;text-align: center;">
+          暂不在车队
+        </view>
+        <view wx:if="{{!eligibility.pdInTime}}" wx:for="{{convoy}}" wx:key="index" class="one">
+          <view class="onedot"></view>
+          <view wx:if="{{index!=convoy.length-1}}" class="oneline"></view>
+          <view class="onemain" style="top: -16rpx;">
+            <view class="onemaincon" style="color: {{item.terminalInTime? '#BFBFBF':'black'}}">{{item.order}}</view>
+            <view class="onemaintitle">
+              <text style="color: {{item.terminalInTime? '#BFBFBF': item.carId==carid?'red':'black'}}">{{item.carId}}</text>
+            </view>
+          </view>
+        </view> -->
+        <view style="position: relative; top: 50%;text-align: center; font-size: 36rpx;">
+          暂未上线
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <tabbar />
+</view>

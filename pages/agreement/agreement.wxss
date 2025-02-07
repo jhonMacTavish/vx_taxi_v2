@@ -1,0 +1,15 @@
+/* pages/announce/announce.wxss */
+.title{
+  font-size:40rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.content{
+  text-indent: 60rpx;
+  margin: 10rpx 0;
+}
+
+.container{
+  background-color: white;
+  padding: 0 20rpx;
+}

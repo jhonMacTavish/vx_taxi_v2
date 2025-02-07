@@ -1,0 +1,20 @@
+<!--pages/report/report.wxml-->
+<view class="container_bg">
+  <view class="container" style="padding-bottom: 80rpx; background-color: rgba(255, 255, 255, 0.8)">
+    <view>
+      <view class="title">
+        近程补偿申报
+      </view>
+      <view style="margin: 30rpx; text-indent: 2em; font-size: 36rpx;">
+        在机场接客后，路程在30 km内的接客单，可提交申请。(注:每月只有一次申报机会)。
+      </view>
+    </view>
+    <view class="img-wrap">
+      <view bindtap="buttonclick" wx:if="{{!imgSrc}}" class="img-box">点击上传图片</view>
+      <image bindtap="buttonclick" wx:else="" class="img" src="{{imgSrc}}" />
+    </view>
+  </view>
+  <view style="box-sizing: border-box; position: absolute; bottom: {{btnBottom}}rpx; width: 100%;display: flex; flex-direction: row; justify-content: center; padding: 0 20rpx;">
+    <button style="width: 100%;" disabled="{{btnDisabled}}" type="primary" bindtap="confirm">确定</button>
+  </view>
+</view>

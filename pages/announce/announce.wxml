@@ -1,0 +1,75 @@
+<!--pages/announce/announce.wxml-->
+<view class="container_bg">
+  <view class="container">
+    <view class="header">
+      <view style="font-size: 52rpx; text-align: center;">
+        天府空港出租车
+      </view>
+      <view style="text-align: center; font-size: 42rpx;">
+        {{tips[currentPage]}}
+      </view>
+    </view>
+    <view class="main">
+      <scroll-view class="scroll-view-class" scroll-y="true" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" bindscrolltolower="onScrollToLower">
+        <view class="content1" wx:if="{{currentPage==0}}">
+          <video class="video" src="{{mediaSrc}}" controls autoplay loop="false" show-center-play-btn object-fit="cover" style="width: 100%;">
+          </video>
+          <image class="imageSize" mode="widthFix" wx:for="{{imageUrl}}" wx:key="index" src="{{item}}"></image>
+          <view style="align-items: center;">
+            <rich-text>
+              <text class="textClass" style="text-align: center; height: 40px; line-height: 40px; font-size: 20px; font-weight: bold;">营运规定\n</text>
+              <text class="textClass">
+                驾驶员在天府机场上客区域，应当遵守下列规定:
+              </text>
+              <text class="textClass">
+                (一)按要求携带车辆运输证和驾驶员从业资格证，出示服务质量监督卡。
+              </text>
+              <text class="textClass">
+                (二)规范着装、热情待客、文明用语，车容车貌、车内公共卫生环境符合规定。
+              </text>
+              <text class="textClass">
+                (三)遵守道路交通安全法律法规，安全行车、按规定上下客、不得离座揽客。
+              </text>
+              <text class="textClass">
+                (四)在上客区域按要求候客并服从现场管理人员的调度和管理。
+              </text>
+              <text class="textClass">
+                (五)不得损坏、擅自改动或者不按规定使用车载设施设备。
+              </text>
+              <text class="textClass">
+                (六)法律、法规、规章规定的其他要求。
+              </text>
+              <text class="textClass">
+                (七)帮助乘客取放行李，协助老、幼、病、残、孕乘客上下车，根据乘客意愿升降车窗玻璃及使用空调、音响等服务设备。
+              </text>
+              <text class="textClass">
+                (八)不得拒绝载客、途中甩客、故意绕道、强行拼载。
+              </text>
+              <text class="textClass">
+                (九)不得在车内吸烟或者食用、装载有异味的物品，不得有兜售商品、服务等影响乘客体验的行为。
+              </text>
+              <text class="textClass">
+                (十)不得在驾驶中有手持电话通话或者持续操作手持设备等影响驾驶安全的行为。
+              </text>
+              <text class="textClass">
+                (十一)不得威胁、辱骂或者殴打乘客，不得对投诉人、举报人或者作出不满意评价的乘客实施报复行为。
+              </text>
+              <text class="textClass">
+                (十二)保持巡游车服务标志标识完好无损，GPS、计价器等专用设施功能正常，故障车辆不得继续运营。
+              </text>
+            </rich-text>
+
+          </view>
+        </view>
+        <view class="content2 content" wx:else style="text-indent: 0">
+          <view wx:for="{{noticeList}}" wx:key="key">
+            <rich-text nodes="{{index+1}}. {{item.note}}"></rich-text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="footer" style="padding-bottom: {{btnBottom}}rpx;">
+      <button disabled="{{!clickable || countdown>0}}" type="primary" bindtap="confirm" style="width: 100%;">确 定{{countdown>0?' (' + countdown+')': ''}}</button>
+    </view>
+  </view>
+</view>

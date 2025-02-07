@@ -1,0 +1,55 @@
+<!--pages/eligibility/eligibility.wxml-->
+<view class="container_bg">
+  <view class="container" style="height: {{height}}px;">
+    <bltboard></bltboard>
+    <view class="info_box">
+      <view class="carNo">
+        <view style="text-align: center; font-size: 36rpx;">车辆信息</view>
+        <view style="text-align: center; font-size: 36rpx;">{{carid}}</view>
+      </view>
+      <view class="qrNo">
+        <canvas style="width: 100px; height: 100px;margin:0 auto" canvas-id="myQrcode">
+        </canvas>
+      </view>
+    </view>
+    <view class="priority-title">上次行程</view>
+    <view class="record_box">
+      <view wx:if="{{!carid}}" style="text-align: center; height: 100%; display: flex; justify-content: center;align-items: center;">
+        <text>暂无记录</text>
+      </view>
+      <scroll-view wx:else scroll-y="true" style="height: 100%;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <view wx:if="{{!record.length}}" style="text-align: center;">暂没有行程</view>
+        <view class="record_wrap" wx:for="{{record}}" wx:key="index">
+          <view wx:if="{{item.mark_show}}" class="seal-box">
+            <view class="seal-wrap">
+              <view class="seal" style="border-color: {{item.mark_color?'red':''}};">
+                <view class="seal-son" style="border-color: {{item.mark_color?'red':''}};">
+                  <span style="position: absolute;top: 50rpx;right: 25rpx;text-align: center;font-size: 40rpx;transform: rotate(-45deg); color: {{item.mark_color?'red':'#B4B4B4'}};font-weight: 600;">{{item.mark_note}}</span>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{item.short_show}}" class="stamp-box"><text>近程</text></view>
+          <view wx:elif="{{item.button_show}}" bindtap="report" class="button-wrap" style="background-color: #07C160; color: white;"><text>申报</text></view>
+          <view style="position: relative; height: 100%;font-size: 36rpx;">
+            <view class="cardLogo"></view>
+            <view style="margin: 10rpx 0; color: #696969; position: absolute; top: 60rpx;">航站楼<text style="color: #3498DB;"> 驶出 </text>时间</view>
+            <view style="margin-bottom: 10rpx; color: #3498DB; position: absolute; top: 120rpx;">{{item.terminal_out_time}}</view>
+            <view wx:if="{{item.expiration_show}}">
+              <view style="margin: 10rpx 0; color: #808080; position: absolute; bottom: 90rpx;">近程补偿<text style="color: #FA8072;"> {{item.expiration_note}} </text>时间</view>
+              <view style="margin-bottom: 10rpx; color: #FA8072; position: absolute; bottom: 40rpx;">{{item.expiration_time}}</view>
+            </view>
+            <view wx:if="{{item.message_show}}" class="rejected-box">
+              <view style="margin: 10rpx 0; color: #808080;">驳回原因</view>
+              <view style="margin-bottom: 10rpx; color: #FA8072;">{{item.message_note}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view style="box-sizing: border-box; width: 100%; padding: 0 10rpx;">
+      <button type="primary" bindtap="refresh" style="width: 100%;">刷 新</button>
+    </view>
+  </view>
+  <tabbar />
+</view>

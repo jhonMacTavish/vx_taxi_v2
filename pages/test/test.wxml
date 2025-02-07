@@ -1,0 +1,34 @@
+<!--pages/carOrder/carOrder.wxml-->
+<view class="container_bg">
+  <view class="container" style="height: {{height}}px;">
+    <bltboard></bltboard>
+    <view class="title-box">车池排序</view>
+    <view class="display-box">
+      <view class="T1pool">
+        <text>T1蓄车池</text>
+        <swiper indicator-dots="true" style="height: 96%;">
+          <block wx:for="{{pool.T1}}" wx:key="index">
+            <swiper-item>
+              <scroll-view scroll-y="true" style="height: 95%;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+                <view wx:for='{{pool.T1[index]}}' wx:key='index'>
+                  <text class="order-item">{{item.POOL_IN_ORDER}}</text>
+                  <text class='carNo-item' style="color: black;">{{item.CAR_ID}}</text>
+                </view>
+              </scroll-view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class="T2pool">
+        <text>T2蓄车池</text>
+        <scroll-view scroll-y="true" style="height: 95%;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <view wx:for='{{pool.T2}}' wx:key='index'>
+            <text class="order-item">{{item.POOL_IN_ORDER}}</text>
+            <text class='carNo-item' style="color: black;">{{item.CAR_ID}}</text>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <tabbar />
+</view>

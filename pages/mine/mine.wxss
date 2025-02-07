@@ -1,0 +1,243 @@
+/* pages/userInfo/userInfo.wxss */
+/* .info_box {
+  margin: 20rpx 20rpx 0 20rpx;
+  padding: 20rpx 0;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.carNo {
+  width: 100px;
+  height: 100px;
+  padding: 6rpx;
+  font-size: 32rpx;
+  background-color: rgba(128, 128, 128, 0.1);
+  border-radius: 6rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.qrNo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 340rpx;
+  height: 100px;
+} */
+
+.info-section{
+  padding: 20rpx 0;
+  margin: 20rpx 10rpx;
+  border-radius: 20rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.info-section .info_box {
+  height: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.carNo {
+  width: 100px;
+  height: 100px;
+  padding: 6rpx;
+  font-size: 32rpx;
+  background-color: rgba(128, 128, 128, 0.1);
+  border:1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.qrNo {
+  width: 100px;
+  height: 100px;
+}
+
+.seal-box {
+  position: absolute;
+  right: 100rpx;
+  top: 35rpx;
+  width: 30%;
+}
+
+.seal-wrap .seal {
+  width: 160rpx;
+  height: 160rpx;
+  border: solid 6rpx #B4B4B4;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seal .seal-son {
+  width: 140rpx;
+  height: 140rpx;
+  border: solid 2rpx #B4B4B4;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.stamp-box {
+  position: absolute;
+  right: 20rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 100rpx;
+  border-radius: 10rpx;
+  background-color: orange;
+  text-align: center;
+  font-weight: 600;
+  color: cornsilk;
+}
+
+.input-box {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10rpx;
+  height: 56rpx;
+  text-align: center;
+}
+
+.airport-info-title {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10rpx 20rpx 10rpx;
+  font-size: 36rpx;
+}
+
+.airport-info-title view {
+  width: 50%;
+}
+
+.airport-info-title view:nth-child(2) {
+  margin-left: 20rpx;
+  width: 50%;
+}
+
+.taxi-info-box {
+  flex: 1;
+  margin: 0 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 500rpx;
+  border-radius: 6px;
+}
+
+.taxi-info-box scroll-view:nth-child(1) {
+  margin-right: 10rpx;
+  margin-bottom: 20px;
+  width: 50%;
+  height: 97%;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.taxi-info-box scroll-view:nth-child(2) {
+  margin-left: 10rpx;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 1);
+  height: 97%;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+scroll-view .one {
+  position: relative;
+  padding-bottom: 50rpx;
+}
+
+scroll-view:nth-last-child(1) .one {
+  position: relative;
+}
+
+.one .onedot {
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  background-color: #67c23a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.one .oneline {
+  position: absolute;
+  left: 10rpx;
+  height: 100%;
+  border-left: 2px solid rgba(128, 128, 128, 0.2);
+}
+
+.one .onemain {
+  position: relative;
+  padding-left: 46rpx;
+  top: -6rpx;
+}
+
+.onemain .onemaintitle {
+  margin-bottom: 16rpx;
+  padding-top: 18rpx;
+  color: #909399;
+  line-height: 1;
+  font-size: 28rpx;
+}
+
+.onemain .onemaincon {
+  color: #303133;
+}
+
+scroll-view:nth-last-child(1) .one {
+  height: 25rpx;
+}
+
+scroll-view:nth-last-child(1) .one .onemain .onemaintitle {
+  display: inline-block;
+  margin-bottom: 16rpx;
+  margin-left: 20rpx;
+  /* padding-top: 18rpx; */
+  color: #909399;
+  line-height: 1;
+}
+
+scroll-view:nth-last-child(1) .one .onemain .onemaincon {
+  display: inline-block;
+  color: #303133;
+}
+
+.logout {
+  margin-bottom: 20px;
+  height: 50rpx;
+  text-align: center;
+}
+
+.logout label {
+  display: inline-block;
+  margin: 0 10px;
+  height: 38px;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E86262;
+  border-radius: 10rpx;
+  color: white;
+  font-weight: 600;
+}

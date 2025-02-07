@@ -1,0 +1,244 @@
+/**index.wxss**/
+.container {
+  background-color: rgba(255, 255, 255, 1);
+  overflow: hidden;
+}
+
+.page_title_box {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.page_title {
+  font-size: 60rpx;
+}
+
+.form_box {
+  padding: 40rpx 0 60rpx 0;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 16rpx;
+}
+
+.form {
+  /* background-color: blueviolet; */
+  padding-top: 40rpx;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name_box {
+  margin-top: 20rpx;
+  font-size: 38rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 140rpx;
+  text-align: center;
+  /* background-color: brown; */
+}
+
+.phone_box {
+  margin-top: 20rpx;
+  font-size: 38rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 140rpx;
+  text-align: center;
+  /* background-color: brown; */
+}
+
+.carNo_box {
+  margin: 20rpx 0 20rpx;
+  font-size: 38rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 140rpx;
+  text-align: center;
+  /* background-color: brown; */
+}
+.gongsi_box{
+  margin: 20rpx 0 20rpx;
+  font-size: 38rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 140rpx;
+  text-align: center;
+  /* background-color: brown; */
+}
+.img-wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  height: 160rpx;
+  border-radius: 10rpx;
+}
+
+.img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210rpx;
+  height: 160rpx;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.img-box:nth-child(1){
+  margin-left: 54rpx;
+}
+
+.img-box:nth-last-child(1){
+  margin-right: 54rpx;
+}
+
+.img{
+  width: 210rpx;
+  height: 160rpx;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10rpx;
+  background-size: cover;
+}
+
+.img:nth-child(1){
+  margin-left: 54rpx;
+}
+
+.img:nth-last-child(1){
+  margin-right: 54rpx;
+}
+
+.pic_box_titel{
+  display: flex;
+  flex-direction:row;
+  font-size: 32rpx;
+  width: 100%;
+  height: 10rpx;
+  text-align: center;
+}
+.pic_box_titel_note{
+  display: flex;
+  flex-direction:row;
+  font-size: 32rpx;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 10rpx;
+  color:black;
+}
+.pic_box{
+  display: flex;
+  flex-direction:row;
+  margin: 20rpx 0 20rpx;
+  font-size: 38rpx;
+  width: 100%;
+  height: 140rpx;
+  text-align: center;
+}
+.pic_box_pic{
+  display: flex;
+  flex-direction:row;
+  border-radius: 25rpx;
+  border-width: 1rpx;
+  border-color: black;
+  border-style:double;
+  margin: 10rpx 70rpx 10rpx 70rpx;
+  font-size: 20rpx;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 120rpx;
+  overflow: hidden;
+}
+.child {
+  width: 50%;
+  height: 24px;  
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 10rpx 70rpx 10rpx 70rpx;
+  text-align: center;
+  background: yellowgreen;
+}  
+.captcha_box {
+  margin: 10rpx 0 20rpx;
+  font-size: 38rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 140rpx;
+  text-align: center;
+  /* background-color: blueviolet; */
+}
+
+input {
+  padding: 10rpx;
+  text-align: left;
+  height: 28rpx;
+  position: relative;
+  margin-left: 40rpx;
+  border: solid 2rpx rgba(0, 0, 0, 0.3);
+  border-radius: 10rpx;
+  display: inline-block;
+}
+
+.agreement {
+  margin-bottom: 40rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+input{
+  font-size: 36rpx;
+}
+
+.date-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.date-gray-background {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, .5);
+  height: calc(100% - 500rpx);
+}
+.date-container {
+  position: absolute;
+  width: 100%;
+  height: 900rpx;
+  overflow: hidden;
+  background: #fff;
+  bottom:0;
+  z-index: 1000;
+}
+
+.date-confirm {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 20rpx;
+  font-size:34rpx;
+  line-height: 70rpx;
+  color:var(--ThemeColor)
+}
+.pickViewColumn{
+  height: 900rpx;
+  margin-top: -300rpx;
+}
+.indicator{
+height: 80rpx;
+border: 1rpx solid #E5E8E8;
+}
+

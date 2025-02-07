@@ -1,0 +1,74 @@
+<view class="container_bg">
+  <view class="container">
+    <view class="page_title_box">
+      <text wx:if="{{!binding}}" class="page_title">注册</text>
+      <text wx:else class="page_title">绑定微信号</text>
+    </view>
+    <view wx:if="{{!binding}}" class="form_box">
+      <form bindsubmit="formSubmit">
+        <view class="img-wrap">
+          <view bindtap="buttonclick" data-tag="xsz" wx:if="{{!pic_xsz}}" class="img-box">点击上传行驶证</view>
+          <image wx:else="" bindtap="buttonclick" data-tag="xsz" class="img" src="{{pic_xsz}}" value="{{form.pic_xsz}}" mode="aspectFit"/>
+          <view bindtap="buttonclick" data-tag="fwz" wx:if="{{!pic_fwz}}" class="img-box">点击上传服务证</view>
+          <image wx:else="" bindtap="buttonclick" data-tag="fwz" class="img" src="{{pic_fwz}}" value="{{form.pic_fwz}}" mode="aspectFit"/>
+        </view>
+        <view class="name_box">
+          <text style="position: relative; top: -22rpx;">姓名</text>
+          <input style="width: 52%; font-size: 32rpx;" maxlength="18" name="name" value="{{form.name}}" placeholder="请输入姓名" type="text" />
+        </view>
+        <view class="carNo_box">
+          <text style="position: relative; top: -22rpx;">车牌</text>
+          <input style="width: 52%; font-size: 32rpx;" bindinput="handleCarIdInput" maxlength="8" name="carid" value="{{form.carid}}" type="text" />
+        </view>
+        <view bindchange="gongsi_picker" class="gongsi_box">
+          <text style="position: relative; top: -22rpx;">公司 </text>
+          <input bindtap="showSelector" disabled="true" style="width: 52%; font-size: 32rpx; margin-left: 30rpx;" name="gongsi" placeholder="请输入公司名称" value="{{searchValue}}" type="text" />
+        </view>
+        <view class="date-background" hidden="{{flag}}">
+          <view class='date-container'>
+            <view class="transparent">
+              <view class='date-confirm'>
+                <view bindtap='cancel'>取消</view>
+                <input value="{{searchValue}}" input-align="center" placeholder="请输入公司名称" bindinput="searchList" style="position: relative; width: 70%; left: -10px; text-align: center;"/>
+                <view bindtap='confirm'>确定</view>
+              </view>
+              <picker-view indicator-class="indicator" value="{{setValues}}" bindchange="bindChange" indicator-style="height: 100rpx;" mask-style="height:900rpx;" style="width: 100%; height: 90%;position:absolute;bottom:0rpx;text-align:center;background:white">
+                <picker-view-column class="pickViewColumn">
+                  <view wx:for="{{companiesFilter}}" wx:key="keyName" style="line-height: 104rpx">{{item}}</view>
+                </picker-view-column>
+              </picker-view>
+            </view>
+          </view>
+        </view>
+        <view class="phone_box">
+          <text style="position: relative; top: -22rpx;">电话</text>
+          <input style="width: 52%; font-size: 32rpx;" bindblur="getphone" maxlength="11" name="phone" value="{{form.phone}}" placeholder="请输入电话" type="text" />
+        </view>
+        <view class="captcha_box">
+          <input style="width: 280rpx; margin-right: 10rpx;  margin-left: 0; font-size: 32rpx;" maxlength="4" name="captcha" value="{{form.captcha}}" placeholder="请输入验证码" type="text" />
+          <button style="display: inline-block; width: 200rpx; padding: 10rpx; color: {{sendColor}};" bindtap="sendCaptcha" disabled="{{smsFlag||loading}}">{{content}}</button>
+        </view>
+        <view class="agreement">
+          <checkbox model:checked="{{checkbox}}" />
+          <label style="position: relative; top: 2rpx;">已阅读并同意
+            <navigator style="display: inline-block;color:cornflowerblue" url="/pages/agreement/agreement?class=user" hover-class="navigator-hover">用户协议</navigator>及
+            <navigator style="display: inline-block;color:cornflowerblue" url="/pages/agreement/agreement?class=privacy" hover-class="navigator-hover">隐私协议</navigator>
+          </label>
+        </view>
+        <!-- </view> -->
+        <button class="btn" style="width: 80%;" type="primary" form-type="submit" disabled="{{loading}}">注册</button>
+      </form>
+    </view>
+    <view wx:else class="form_box">
+      <form bindsubmit="binding">
+        <!-- <view class="form"> -->
+        <view class="captcha_box">
+          <input style="width: 100px !important; margin-right: 10rpx;  margin-left: -8rpx;" maxlength="4" name="captcha" value="{{form.captcha}}" bindblur="getCaptcha" placeholder="请输入验证码" type="number" />
+          <button style="display: inline-block; width: 200rpx;  padding: 10rpx; color: {{sendColor}};" bindtap="sendCaptcha" disabled="{{smsFlag}}">{{content}}</button>
+        </view>
+        <!-- </view> -->
+        <button class="btn" form-type="submit" disabled="{{loading}}">提交</button>
+      </form>
+    </view>
+  </view>
+</view>

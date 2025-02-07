@@ -1,0 +1,66 @@
+<!--pages/manager/manager.wxml-->
+<view class="container_bg">
+  <view class="container" style="height: {{height}}px;">
+    <bltboard></bltboard>
+    <view class="search_box">
+      <input class="search_ipt" type="text" model:value="{{carid}}" bindinput="getCarNo" placeholder="请输入车牌" disabled="{{edit}}" maxlength="8" />
+      <view style="z-index: 9999;" class="search_icon" bindtap="scanCode">
+        <image src="../../imgs/sys.png"></image>
+      </view>
+      <view class="search_btn" bindtap="search">
+        <image src="../../imgs/search.png"></image>
+      </view>
+    </view>
+    <view class="driver-info-box">
+      <view class="detail-box">
+        <view class="carid">
+          <text>车牌:</text>
+          <text>川A12345</text>
+        </view>
+        <view class="drivers">
+          <view class="title">
+            <text>驾驶员: </text>
+          </view>
+          <view class="name">
+            <text>姚凯竣 13980769536\n</text>
+            <text>姚凯竣 13980769536\n</text>
+            <text>姚凯竣 13980769536\n</text>
+          </view>
+        </view>
+      </view>
+      <view class="seal-box">
+        <view class="seal-wrap">
+          <view class="seal">
+            <view class="seal-son">
+              <span style="position: absolute;top: 32rpx;text-align: center;font-size: 26rpx;transform: rotate(-45deg);right: 40rpx;color: #B4B4B4;font-weight: 900;">普通车辆</span>
+              <span style="position: absolute;top: 66rpx;text-align: center;font-size: 20rpx;transform: rotate(-45deg);left: 40rpx;color: #B4B4B4;">2021.08.09 23:59</span>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="taxi-info-box">
+      <scroll-view>
+        <view wx:for="{{list}}" wx:key="index" class="one">
+          <view class="onedot"></view>
+          <view wx:if="{{index!=list.length-1}}" class="oneline"></view>
+          <view class="onemain">
+            <view class="onemaincon">{{item.con}}</view>
+            <view class="onemaintitle">{{item.time}}</view>
+          </view>
+        </view>
+      </scroll-view>
+      <scroll-view>
+        <view wx:for="{{convoy}}" wx:key="index" class="one">
+          <view class="onedot"></view>
+          <view wx:if="{{index!=convoy.length-1}}" class="oneline"></view>
+          <view class="onemain">
+            <view class="onemaincon">{{item.con}}</view>
+            <view class="onemaintitle">{{item.time}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <tabbar />
+</view>

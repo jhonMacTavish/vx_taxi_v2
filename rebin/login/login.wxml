@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container_bg">
+  <view class="container">
+    <view class="page_title_box">
+      <text class="page_title">天府空港出租车</text>
+    </view>
+    <view class="form_box">
+      <!--<button style="margin-top: 0;" type="primary" bindtap="login">快捷登录</button>-->
+      <!--<button  class="btn" bindtap="goToRegister">注册</button>--> 
+      <button style="margin-top: 0;" type="primary" bindtap="wxLogin">快捷登录</button>
+    </view>
+  </view>
+</view>

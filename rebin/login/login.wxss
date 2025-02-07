@@ -1,0 +1,70 @@
+/**index.wxss**/
+.container {
+  overflow: hidden;
+  background-color: white;
+}
+.page_title_box{
+  margin: 50% 0 20% 0;
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+}
+.page_title{
+  font-size: 46rpx;
+}
+.form_box{
+  padding: 30rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 16rpx;
+}
+.form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.name_box{
+  margin-top: 20rpx;
+  font-size: 40rpx;
+  width: 100%;
+  height: 140rpx;
+  line-height: 140rpx;
+  text-align: center;
+}
+.phone_box{
+  margin-top: 20rpx;
+  font-size: 40rpx;
+  width: 100%;
+  height: 140rpx;
+  line-height: 140rpx;
+  text-align: center;
+}
+.carNo_box{
+  margin: 20rpx 0 40rpx;
+  font-size: 40rpx;
+  width: 100%;
+  height: 140rpx;
+  line-height: 140rpx;
+  text-align: center;
+}
+
+input{
+  padding: 10rpx;
+  text-align: left;
+  height: 60rpx;
+  position: relative;
+  margin-left: 40rpx;
+  border: solid 2rpx rgba(0, 0, 0, 0.3);
+  border-radius: 10rpx;
+  top: 18rpx;
+  display: inline-block;
+}
+button{
+  margin-top: 40rpx;
+}

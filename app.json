@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/announce/announce",
+    "pages/airportInfo/airportInfo",
+    "pages/eligibility/eligibility",
+    "pages/record/record",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/manager/manager",
+    "pages/agreement/agreement",
+    "pages/point/point",
+    "pages/mine/mine",
+    "pages/report/report",
+    "pages/eligibtDetial/eligibtDetial",
+    "pages/carOrder/carOrder"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "天府空港出租车",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999",
+    "selectedColor": "#0095FF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/airportInfo/airportInfo",
+        "text": "车场"
+      },
+      {
+        "pagePath": "pages/eligibility/eligibility",
+        "text": "资格"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      },
+      {
+        "pagePath": "pages/record/record",
+        "text": "详情"
+      },
+      {
+        "pagePath": "pages/manager/manager",
+        "text": "管理"
+      },
+      {
+        "pagePath": "pages/eligibtDetial/eligibtDetial",
+        "text": "名单"
+      },
+      {
+        "pagePath": "pages/carOrder/carOrder",
+        "text": "排序"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

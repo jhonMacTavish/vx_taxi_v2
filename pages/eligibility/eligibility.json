@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bltboard": "/components/bltboard/bltboard",
+    "tabbar": "/components/tabbar/index"
+  }
+}

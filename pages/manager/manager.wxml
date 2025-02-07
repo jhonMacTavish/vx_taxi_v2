@@ -1,0 +1,63 @@
+<!--pages/manager/manager.wxml-->
+<view class="container_bg">
+  <view class="container" style="height: {{height}}px;">
+    <bltboard></bltboard>
+    <view class="title-box">补偿车辆</view>
+    <view class="display_box">
+      <view class="terminal-box">
+        <text>T1补偿</text>
+        <scroll-view scroll-y="true" style="height: 225rpx; overflow: hidden;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <view class="display_item" wx:for="{{T1PdList.pdCarList}}" wx:key="index">
+            <text style="font-size: 26rpx;">{{item.carId}}</text>
+          </view>
+          <view wx:if="{{T1PdList.length==0}}" style="width: 100%; height:260rpx; line-height: 260rpx; text-align: center;">
+            <text>暂无补偿车辆</text>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="terminal-box">
+        <text>T2补偿</text>
+        <scroll-view scroll-y="true" style="height: 225rpx; overflow: hidden;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <view class="display_item" wx:for="{{T2PdList.pdCarList}}" wx:key="index">
+            <text style="font-size: 26rpx;">{{item.carId}}</text>
+          </view>
+          <view wx:if="{{T1PdList.length==0}}" style="width: 100%; height:260rpx; line-height: 260rpx; text-align: center;">
+            <text>暂无补偿车辆</text>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="title-box">路途车队</view>
+    <view class="convoy">
+      <view class="convoyT1">
+        <text>T1航站楼</text>
+        <scroll-view scroll-y="true" style="height: 95%;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <view class='select_box' wx:for='{{convoyT1}}' wx:for-item="convoyItem" wx:key="index">
+            <view class='select' bindtap='selectTap' data-index='{{index}}' data-terminal='T1'>
+              <text class='select_text'>车队{{convoyT1[index].batchOrder}}</text>
+              <image class="select_img  {{showT1[index]&&'select_img_rotate'}}" src='../../imgs/向左.png'></image>
+            </view>
+            <view class='option_box' style='height: {{showT1[index]?(convoyItem.carList.length > 10? 600: convoyItem.carList.length * 60):0}}rpx;'>
+              <text class='option' wx:for='{{convoyT1[index].carList}}' wx:key='index' style="color: {{item.terminalInTime?'green':'black'}};">{{item.order}} {{item.carId}}</text>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="convoyT2">
+        <text>T2航站楼</text>
+        <scroll-view scroll-y="true" style="height: 95%;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <view class='select_box' wx:for='{{convoyT2}}' wx:for-item="convoyItem" wx:key="index">
+            <view class='select' bindtap='selectTap' data-index='{{index}}' data-terminal='T2'>
+              <text class='select_text'>车队{{convoyT2[index].batchOrder}}</text>
+              <image class="select_img  {{showT2[index]&&'select_img_rotate'}}" src='../../imgs/向左.png'></image>
+            </view>
+            <view class='option_box' style='height: {{showT2[index]?(convoyItem.carList.length > 10? 600: convoyItem.carList.length * 60):0}}rpx;'>
+              <text class='option' wx:for='{{convoyT2[index].carList}}' wx:key='index' style="color: {{item.terminalInTime?'green':'black'}};">{{item.order}} {{item.carId}}</text>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <tabbar />
+</view>
