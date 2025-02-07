@@ -66,7 +66,7 @@ Component({
   attached() {
     const pages = getCurrentPages();
     const currentPage = pages[pages.length - 1]?.route || '';
-    const userInfo = wx.getStorageSync('userInfo') || { manage: "出租车" };
+    const userInfo = wx.getStorageSync('userInfo') || { manage: "" };
 
     this.setData({
       currentPage,

@@ -59,6 +59,7 @@ App({
     this.getNotice();
   },
   onHide() {
+    console.log("hide");
     wx.removeStorageSync('userInfo');
   },
   connectMQ: function () {

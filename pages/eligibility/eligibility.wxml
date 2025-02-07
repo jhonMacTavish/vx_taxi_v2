@@ -47,7 +47,7 @@
         </view>
       </scroll-view>
     </view>
-    <view style="box-sizing: border-box; width: 100%; padding: 0 10rpx;">
+    <view style="box-sizing: border-box; width: 100%; padding: 0 10rpx; margin-bottom: 6rpx;">
       <button type="primary" bindtap="refresh" style="width: 100%;">刷 新</button>
     </view>
   </view>

@@ -26,5 +26,5 @@
       </scroll-view>
     </view>
   </view>
-  <tabbar />
+  <tabbar id="tabbar"/>
 </view>

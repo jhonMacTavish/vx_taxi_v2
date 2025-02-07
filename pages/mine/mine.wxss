@@ -131,7 +131,7 @@
 
 .taxi-info-box {
   flex: 1;
-  margin: 0 10rpx;
+  margin: 0 10rpx 2rpx 10rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

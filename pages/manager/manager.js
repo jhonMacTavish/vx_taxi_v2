@@ -89,7 +89,7 @@ Page({
     }
   },
   watchBack: function (name, value) {
-    console.log(name, value);
+    // console.log(name, value);
     if (name == "T1PdList") {
       this.setData({
         T1PdList: value
