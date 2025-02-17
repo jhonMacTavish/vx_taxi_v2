@@ -1,6 +1,6 @@
 // pages/eligibility/eligibility.js
 import drawQrcode from '../../utils/weapp.qrcode.esm';
-import dayjs from '../../utils/dayjs.min';
+
 const app = getApp();
 Page({
 

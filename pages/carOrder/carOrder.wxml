@@ -2,32 +2,35 @@
 <view class="container_bg">
   <view class="container" style="height: {{height}}px;">
     <bltboard></bltboard>
-    <view class="title-box">车池排序</view>
+    <view class="title-box">
+      <view>车池排序</view>
+      <view class="title-box-switch">
+        <text>T1 </text>
+        <switch checked="{{switchChecked}}" bindchange="switchBtn" />
+        <text>T2</text>
+      </view>
+    </view>
     <view class="display-box">
       <view class="T1pool">
-        <text>T1蓄车池</text>
-        <swiper indicator-dots="true" style="height: 96%;">
-          <block wx:for="{{pool.T1}}" wx:key="index">
+        <view class="head-box">
+          <view><text>{{switchChecked?'T2':'T1'}}蓄车池</text></view>
+          <view style="width: 50%">
+            <input class="input-field" type="text" model:value="{{carid}}" bindinput="onCarIdInput"/>
+            <button class="filterBtn" bindtap="filterCarID">
+              <image class="filterImg" src="../../imgs/search.png"></image>
+            </button>
+          </view>
+        </view>
+        <swiper indicator-dots="true" current="{{current.page}}" bindchange="onSwiperChange" style="height: 96%">
+          <block wx:for="{{pool.show}}" wx:key="index">
             <swiper-item>
-              <scroll-view scroll-y="true" style="height: 95%;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-                <view wx:for='{{pool.T1[index]}}' wx:key='index'>
-                  <text class="order-item">{{item.POOL_IN_ORDER}}</text>
-                  <text class='carNo-item'>{{item.CAR_ID}}</text>
-                </view>
-              </scroll-view>
-            </swiper-item>
-          </block>
-        </swiper>
-      </view>
-      <view class="T2pool">
-        <text>T2蓄车池</text>
-        <swiper indicator-dots="true" style="height: 96%;">
-          <block wx:for="{{pool.T2}}" wx:key="index">
-            <swiper-item>
-              <scroll-view scroll-y="true" style="height: 95%;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-                <view wx:for='{{pool.T2[index]}}' wx:key='index'>
-                  <text class="order-item">{{item.POOL_IN_ORDER}}</text>
-                  <text class='carNo-item'>{{item.CAR_ID}}</text>
+              <scroll-view scroll-y="true" style="height: 95%" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+                <view wx:for="{{pool.show[index]}}" wx:key="index">
+                  <view class="item-box" bindtap="jumpTo" data-carid="{{item.CAR_ID}}" style="color: {{current.page == targetCarID.page && index==targetCarID.index? 'orange':''}}">
+                    <text class="order-item">{{item.POOL_IN_ORDER}}</text>
+                    <text class="carNo-item">{{item.CAR_ID}}</text>
+                    <text class="time-item">{{item.POOL_IN_TIME}}</text>
+                  </view>
                 </view>
               </scroll-view>
             </swiper-item>

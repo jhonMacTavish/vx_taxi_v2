@@ -47,16 +47,17 @@
 }
 
 .carNo {
-  width: 100px;
+  width: 180px;
   height: 100px;
   padding: 6rpx;
-  font-size: 32rpx;
   background-color: rgba(128, 128, 128, 0.1);
   border:1px solid rgba(0, 0, 0, 0.1);
   border-radius: 6rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  text-align: center;
+  font-size: 32rpx;
 }
 
 .qrNo {

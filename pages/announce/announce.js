@@ -133,7 +133,6 @@ Page({
     const that = this;
     setTimeout(() => {
       const mediaSrc = wx.getStorageSync('mediaSrc');
-      console.log(mediaSrc);
       if (mediaSrc) {
         that.setData({
           mediaSrc

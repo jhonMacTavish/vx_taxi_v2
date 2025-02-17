@@ -46,8 +46,8 @@
     <view class="info-section">
       <view class="info_box">
         <view class="carNo">
-          <view style="text-align: center; font-size: 36rpx;">车辆信息</view>
-          <view style="text-align: center; font-size: 36rpx;">{{carid}}</view>
+          <view><text>我的车牌：{{carid}}</text></view>
+          <view><text>即将放行：{{carid}}</text></view>
         </view>
         <view class="qrNo">
           <canvas style="width: 100px; height: 100px;margin:0 auto" canvas-id="myQrcode">

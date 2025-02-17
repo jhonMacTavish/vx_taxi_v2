@@ -1,4 +1,6 @@
 // pages/aiportInfo/airportInfo.js
+import MQConnector from '../../utils/MQConnector';
+
 const app = getApp();
 Page({
 
@@ -65,7 +67,7 @@ Page({
       wx.showLoading({
         title: '连接中',
       });
-      app.connectMQ();
+      MQConnector.connectMQ(app);
     }
     app.watch('parkData', this.watchBack);
     app.watch('channelData', this.watchBack);
@@ -81,7 +83,7 @@ Page({
       url: 'https://tsms1.sctfia.com/status_num',
       method: 'GET',
       success(res) {
-        console.log(res);
+        // console.log(res);
         if (res.statusCode === 200) {
           let data = res.data[0];
           app.switchData(data.type, data.mark, data.data);
