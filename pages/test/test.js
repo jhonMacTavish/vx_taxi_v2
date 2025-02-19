@@ -55,10 +55,6 @@ Page({
    */
   onShow() {
     const that = this;
-    if (!app.globalData.client.connectFlag) {
-      //console.log(app.globalData.client.connectFlag);
-      app.globalData.client.connectFlag = true;
-    }
     let height = app.globalData.pgHeight
     const timer = setInterval(() => {}, 5000);
     this.setData({

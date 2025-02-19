@@ -5,16 +5,20 @@ Page({
      * 页面的初始数据
      */
     data: {
+        height: null,
+        timer: 0,
+        switchChecked: false,
         pool: {
             T1: [],
             T2: [],
             show: [],
         },
-        height: null,
-        timer: 0,
-        switchChecked: false,
-        carid: "",
+        carid: {
+            input: "",
+            target: "",
+        },
         current: {
+            statJmpTo: false,
             index: -1,
             page: 0,
         },
@@ -26,8 +30,9 @@ Page({
 
     onCarIdInput(e) {
         this.setData({
-            carid: e.detail.value.toUpperCase()
+            "carid.input": e.detail.value.toUpperCase(),
         });
+        console.log(this.data.carid);
     },
 
     onSwiperChange(e) {
@@ -37,19 +42,37 @@ Page({
         console.log(this.data.current);
     },
 
+    search() {
+        this.setData({
+            "carid.target": this.data.carid.input,
+            "current.statJmpTo": true,
+        });
+        this.filterCarID();
+    },
+
     filterCarID() {
+        const carid = this.data.carid,
+            pool = this.data.pool,
+            current = this.data.current;
+        console.log(carid);
+        console.log(pool);
+
         let index = -1;
-        const { carid, pool } = this.data;
-        console.log(carid, pool);
         for (let page = 0; page < pool.show.length; page++) {
             console.log(pool.show[page]);
             for (let index = 0; index < pool.show[page].length; index++) {
-                if (pool.show[page][index].CAR_ID == carid.toUpperCase()) {
-                    console.log(page, index);
+                if (
+                    pool.show[page][index].CAR_ID == carid.target?.toUpperCase()
+                ) {
+                    if (current.statJmpTo) {
+                        this.setData({
+                            ["current.page"]: page,
+                            "carid.input": "",
+                        });
+                    }
                     return this.setData({
                         ["current.index"]: index,
-                        ["current.page"]: page,
-                        carid: "",
+                        ["current.statJmpTo"]: false,
                         ["targetCarID.index"]: index,
                         ["targetCarID.page"]: page,
                     });
@@ -57,12 +80,16 @@ Page({
             }
         }
 
+        if (!current.statJmpTo) return;
+
         wx.showToast({
             title: "没有找到匹配的车牌号",
             icon: "error",
         });
-        return this.setData({
-            carid: "",
+        this.setData({
+            ["current.statJmpTo"]: false,
+            ["targetCarID.index"]: -1,
+            ["targetCarID.page"]: -1,
         });
     },
 
@@ -70,15 +97,18 @@ Page({
         const switchChecked = e.detail.value;
         if (switchChecked) {
             this.setData({
-                switchChecked,
                 ["pool.show"]: this.data.pool.T2,
             });
         } else {
             this.setData({
-                switchChecked,
                 ["pool.show"]: this.data.pool.T1,
             });
         }
+        this.setData({
+            switchChecked,
+            ["targetCarID.index"]: -1,
+            ["targetCarID.page"]: -1,
+        });
         console.log(this.data.pool.show);
     },
 
@@ -113,6 +143,7 @@ Page({
                     ["pool.T2"]: arrT2,
                     ["pool.show"]: that.data.switchChecked ? arrT2 : arrT1,
                 });
+                that.filterCarID();
             },
         });
     },

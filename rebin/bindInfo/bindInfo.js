@@ -41,11 +41,6 @@ Page({
     wx.setKeepScreenOn({
       keepScreenOn: true
     })
-    if (!app.globalData.client.connectFlag) {
-      //console.log(app.globalData.client.connectFlag);
-      app.globalData.client.connectFlag = true;
-      // app.watch('onWayData', this.watchBack);
-    }
 
     let height = app.globalData.pgHeight
     this.setData({

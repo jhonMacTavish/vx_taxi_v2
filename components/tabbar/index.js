@@ -81,11 +81,11 @@ Component({
 
     methods: {
         async switchTab(e) {
-            const url = e.currentTarget.dataset.path;
             const restrictedPages = new Set([
                 "/pages/airportInfo/airportInfo",
                 "/pages/eligibtDetial/eligibtDetial",
             ]);
+            let url = e.currentTarget.dataset.path;
 
             if (!restrictedPages.has(url)) {
                 const userInfo = wx.getStorageSync("userInfo");
@@ -106,6 +106,14 @@ Component({
                             wx.navigateTo({ url: "../index/index" });
                             wx.removeStorageSync("userInfo");
                         });
+                    case "管理员":
+                        this.setData({ list: this.data.allList.manager });
+                        url =
+                        url === "/pages/eligibility/eligibility"
+                            ? "/pages/record/record"
+                            : url === "/pages/mine/mine"
+                            ? "/pages/manager/manager"
+                            : url;
                     default:
                         break;
                 }

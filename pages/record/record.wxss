@@ -72,7 +72,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 80%;
+  width: 70%;
 }
 
 .detail-box .carid {
@@ -100,10 +100,11 @@
   height: 100%;
 }
 
-.drivers name-box {
+/* .drivers name-box {
   flex: 1;
   height: 100%;
-}
+  background-color: chartreuse;
+} */
 
 .drivers .title {
   margin-right: 4px;
@@ -116,21 +117,28 @@
 }
 
 .drivers .name-box{
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
 .drivers .item-box{
-  width: 100% !important;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .drivers .name-box .item-box .name{
+  display: flex;
+  justify-content: center;
   width: 135rpx;
   margin-right: 5rpx;
   text-align: right;
+}
+
+.drivers .name-box .item-box .phone{
 }
 
 .driver-info-box .seal-box {

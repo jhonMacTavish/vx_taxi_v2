@@ -33,7 +33,7 @@ class WxAuthUtils {
             );
             userInfo = wx.getStorageSync("userInfo");
 
-            if (!userInfo) {
+            if (!userInfo && that) {
                 return this.showModal("请先注册账号", this.goToRegister);
             }
 
@@ -120,7 +120,7 @@ class WxAuthUtils {
 
     static goToRegister() {
         wx.navigateTo({
-            url: "../register/register",
+            url: "/pages/index/index",
         });
     }
 }

@@ -73,7 +73,7 @@ App({
     this.data.client.on('connect', function (connack) {
       that.subTopic();
       //console.log(that.data.client);
-      that.globalData.client.connectFlag = false;
+      that.globalData.client.connectFlag = true;
     })
 
     //服务器下发消息的回调

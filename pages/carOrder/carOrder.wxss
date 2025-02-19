@@ -36,6 +36,8 @@
 }
 
 .filterBtn {
+  position: relative;
+  top: 1rpx;
   display: inline-block;
   width: 60rpx !important;
   height: 50rpx !important;

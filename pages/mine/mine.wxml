@@ -46,11 +46,12 @@
     <view class="info-section">
       <view class="info_box">
         <view class="carNo">
-          <view><text>我的车牌：{{carid}}</text></view>
-          <view><text>即将放行：{{carid}}</text></view>
+          <view style="text-align: center; font-size: 32rpx"><text>我的车牌：{{carid}}</text></view>
+          <view wx:if="{{myNo}}" style="text-align: center; font-size: 36rpx">我的号牌：<text style="font-size: 42rpx">{{myNo}}</text></view>
+          <view wx:if="{{nextNo}}" style="text-align: center; font-size: 36rpx">上次放行：<text style="font-size: 42rpx">{{nextNo}}</text></view>
         </view>
         <view class="qrNo">
-          <canvas style="width: 100px; height: 100px;margin:0 auto" canvas-id="myQrcode">
+          <canvas style="width: 100px; height: 100px; margin: 0 auto" canvas-id="myQrcode">
           </canvas>
         </view>
       </view>
@@ -68,27 +69,18 @@
           <view class="onedot"></view>
           <view wx:if="{{index!=list.length-1}}" class="oneline"></view>
           <view class="onemain">
-            <view class="onemaincon" style="font-size: 36rpx;">{{item.con}}</view>
+            <view class="onemaincon" style="font-size: 36rpx">{{item.con}}</view>
             <view class="onemaintitle">{{item.time?item.time:'没有时间记录'}}</view>
           </view>
         </view>
       </scroll-view>
       <scroll-view scroll-y="true">
-        <!-- <view wx:if="{{convoy.length == 0}}" style="position: relative; top: 50%;text-align: center;">
-          暂不在车队
+        <view wx:if="{{!preCarList.length}}" style="position: relative; top: 50%; text-align: center; font-size: 36rpx; ">
+          暂无数据
         </view>
-        <view wx:if="{{!eligibility.pdInTime}}" wx:for="{{convoy}}" wx:key="index" class="one">
-          <view class="onedot"></view>
-          <view wx:if="{{index!=convoy.length-1}}" class="oneline"></view>
-          <view class="onemain" style="top: -16rpx;">
-            <view class="onemaincon" style="color: {{item.terminalInTime? '#BFBFBF':'black'}}">{{item.order}}</view>
-            <view class="onemaintitle">
-              <text style="color: {{item.terminalInTime? '#BFBFBF': item.carId==carid?'red':'black'}}">{{item.carId}}</text>
-            </view>
-          </view>
-        </view> -->
-        <view style="position: relative; top: 50%;text-align: center; font-size: 36rpx;">
-          暂未上线
+        <view wx:for="{{preCarList}}" wx:key="index" style="display: flex; justify-content: space-around;">
+          <text style="display: inline-block;">{{item.poolInOrder}} </text>
+          <text style="display: inline-block; width: 90px;"> {{item.carId}}</text>
         </view>
       </scroll-view>
     </view>

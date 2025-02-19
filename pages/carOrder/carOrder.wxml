@@ -15,8 +15,8 @@
         <view class="head-box">
           <view><text>{{switchChecked?'T2':'T1'}}蓄车池</text></view>
           <view style="width: 50%">
-            <input class="input-field" type="text" model:value="{{carid}}" bindinput="onCarIdInput"/>
-            <button class="filterBtn" bindtap="filterCarID">
+            <input class="input-field" type="text" model:value="{{carid.input}}" bindinput="onCarIdInput"/>
+            <button class="filterBtn" bindtap="search">
               <image class="filterImg" src="../../imgs/search.png"></image>
             </button>
           </view>

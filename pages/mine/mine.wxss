@@ -47,7 +47,7 @@
 }
 
 .carNo {
-  width: 180px;
+  width: 170px;
   height: 100px;
   padding: 6rpx;
   background-color: rgba(128, 128, 128, 0.1);

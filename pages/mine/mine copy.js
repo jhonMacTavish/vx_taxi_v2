@@ -36,8 +36,18 @@ Page({
                 con: "航站楼驶出时间",
             },
         ],
+        convoy: [
+            {
+                time: "没有时间记录",
+                con: "行程开始时间",
+            },
+            {
+                time: "没有时间记录",
+                con: "行程结束时间",
+            },
+        ],
+        itinerary: [{}, {}],
         timer: null,
-        myNo: null,
         nextNo: null,
         preCarList: [],
 
@@ -70,21 +80,19 @@ Page({
             carid,
         });
         wx.request({
-            url: "https://tsms1.sctfia.com/car_process2",
+            url: "https://tsms1.sctfia.com/car_process",
             data: {
                 carid,
             },
             method: "GET",
             success(res) {
                 console.log(res.data);
-                try {
-                    let data = res.data.process;
+                if (res.data.length) {
+                    let data = res.data[0].process;
                     let processid = data.id;
-                    const preCarList = res.data.carListTop;
-                    const nextNo = res.data.endPoolOutOrder;
-                    const myNo = res.data.poolInOrder;
-                    console.log(nextNo, res.data.endPoolOutOrder);
+                    // console.log(data);
                     let arr = that.data.list;
+                    // console.log(res.data);
                     for (let i = 0; i < 4; i++) {
                         switch (i) {
                             case 0:
@@ -103,15 +111,70 @@ Page({
                                 break;
                         }
                     }
-
+                    let eligibility = {};
                     that.setData({
                         list: arr,
-                        preCarList,
-                        nextNo,
-                        myNo
+                        eligibility,
                     });
-                } catch (error) {
-                    console.log(error);
+                    eligibility.pdInTime = data.pdInTime;
+                    if (data.pdInTime) {
+                        wx.request({
+                            url: "https://tsms1.sctfia.com/car_meter",
+                            data: {
+                                processid,
+                            },
+                            method: "GET",
+                            success(res) {
+                                console.log(res.data);
+                                if (res.data.length) {
+                                    let data = res.data[0].process_meter;
+                                    console.log(data);
+                                    let itinerary = that.data.itinerary;
+                                    console.log(itinerary);
+                                    itinerary[0].time = data.timeGetOn
+                                        ? data.timeGetOn
+                                        : "没有时间记录";
+                                    itinerary[1].time = data.timeGetOff
+                                        ? data.timeGetOff
+                                        : "没有时间记录";
+                                    that.setData({
+                                        itinerary,
+                                        eligibility,
+                                    });
+                                } else {
+                                    that.setData({
+                                        eligibility,
+                                    });
+                                }
+                            },
+                        });
+                    } else {
+                        // wx.request({
+                        //   url: 'https://tsms1.sctfia.com/batch_car_list',
+                        //   data: {
+                        //     carid
+                        //   },
+                        //   method: 'GET',
+                        //   success(res) {
+                        //     // console.log(res.data);
+                        //     if (res.data.length) {
+                        //       let carList = res.data[0].carList;
+                        //       console.log(carList);
+                        //       that.setData({
+                        //         convoy: carList
+                        //       });
+                        //     } else {
+                        //       that.setData({
+                        //         convoy: []
+                        //       });
+                        //     }
+                        //   }
+                        // });
+                    }
+                } else {
+                    that.setData({
+                        convoy: [],
+                    });
                 }
             },
         });
@@ -125,7 +188,7 @@ Page({
                 success(res) {
                     console.log(res.data);
                     if (res.data.length) {
-                        let data = res.data.process[0];
+                        let data = res.data[0].process[0];
                         let processid = data.id;
                         console.log(data);
                         let arr = that.data.list;
@@ -163,7 +226,7 @@ Page({
                                 success(res) {
                                     // console.log(res.data);
                                     if (res.data.length) {
-                                        let data = res.data.process_meter;
+                                        let data = res.data[0].process_meter;
                                         let itinerary = that.data.itinerary;
                                         itinerary[0].time = data.timeGetOn;
                                         itinerary[1].time = data.timeGetOff;
@@ -188,7 +251,7 @@ Page({
                             //   success(res) {
                             //     // console.log(res.data);
                             //     if (res.data.length) {
-                            //       let carList = res.data.carList;
+                            //       let carList = res.data[0].carList;
                             //       that.setData({
                             //         convoy: carList
                             //       });
@@ -243,10 +306,10 @@ Page({
         //     // console.log(res.data);
         //     if (res.data.length) {
         //       let appealed = true;
-        //       let judged = res.data.judged;
-        //       let dateText = res.data.time_get_on;
-        //       let index = res.data.run_odometer;
-        //       let imgSrc = res.data.pic;
+        //       let judged = res.data[0].judged;
+        //       let dateText = res.data[0].time_get_on;
+        //       let index = res.data[0].run_odometer;
+        //       let imgSrc = res.data[0].pic;
         //       that.setData({
         //         appealed, judged, dateText, index, imgSrc
         //       });
@@ -294,10 +357,10 @@ Page({
                         console.log(res.data);
                         if (res.data.length) {
                             let appealed = true;
-                            let judged = res.data.judged;
-                            let dateText = res.data.time_get_on;
-                            let index = res.data.run_odometer;
-                            let imgSrc = res.data.pic;
+                            let judged = res.data[0].judged;
+                            let dateText = res.data[0].time_get_on;
+                            let index = res.data[0].run_odometer;
+                            let imgSrc = res.data[0].pic;
                             that.setData({
                                 appealed,
                                 judged,

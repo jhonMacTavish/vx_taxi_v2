@@ -16,6 +16,7 @@
         <view class="carid">
           <text>车牌:</text>
           <text>{{userlist[0].carid}}</text>
+          <text style="display: inline-block; margin-left: 20px; font-size: 42rpx; color: #F5C543;">{{userNo?userNo+'号':''}}</text>
         </view>
         <view class="drivers">
           <view class="title">
@@ -55,23 +56,13 @@
         </view>
       </scroll-view>
       <scroll-view scroll-y="true">
-        <view wx:if="{{!eligibility.pdInTime}}" class="carlist-box">
-          <view style="position: relative; top: 50%;text-align: center; font-size: 36rpx;">暂未上线</view>
-          <!-- <view wx:if="{{!carList.length}}" style="position: relative; top: 50%;text-align: center;">暂不在车队</view>
-          <view wx:for="{{carList}}" wx:key="index">
-            <text style="color: {{item.terminalInTime? '#BFBFBF': null}}">{{item.order}} {{item.carId}}</text>
-          </view> -->
+        <view wx:if="{{!preCarList.length}}" style="position: relative; top: 50%; text-align: center; font-size: 36rpx; ">
+          暂无数据
         </view>
-        <!-- <view wx:if="{{eligibility.pdInTime}}">
-          <view wx:for="{{itinerary}}" wx:key="index" class="one">
-            <view class="onedot"></view>
-            <view wx:if="{{index!=itinerary.length-1}}" class="oneline"></view>
-            <view class="onemain">
-              <view class="onemaincon">{{item.con}}</view>
-              <view class="onemaintitle">{{item.time}}</view>
-            </view>
-          </view>
-        </view> -->
+        <view wx:for="{{preCarList}}" wx:key="index" style="display: flex; justify-content: space-around;">
+          <text style="display: inline-block;">{{item.poolInOrder}} </text>
+          <text style="display: inline-block; width: 90px;"> {{item.carId}}</text>
+        </view>
       </scroll-view>
     </view>
   </view>
