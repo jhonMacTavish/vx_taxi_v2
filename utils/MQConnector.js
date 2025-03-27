@@ -18,7 +18,7 @@ class MQConnector{
     app.data.client.on("message", (topic, payload) => {
       try {
         const fme_data = JSON.parse(payload);
-        console.log(fme_data);
+        // console.log(fme_data);
         if (fme_data.type) app.switchData(fme_data.type, fme_data.mark, fme_data.data);
       } catch (error) {
         console.error('消息解析失败:', error);
