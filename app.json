@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/channelDetail/channelDetail",
     "pages/announce/announce",
     "pages/airportInfo/airportInfo",
     "pages/eligibility/eligibility",
