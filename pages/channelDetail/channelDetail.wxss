@@ -16,8 +16,9 @@
 }
 
 .header {
-  background: #409EFF;
-  color: white;
+  margin-top: 20rpx;
+  /* background: #409EFF; */
+  color: black;
 }
 
 .th, .td {

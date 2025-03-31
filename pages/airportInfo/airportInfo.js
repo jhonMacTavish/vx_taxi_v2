@@ -59,6 +59,7 @@ Page({
         ],
         circle1: null,
         circle2: null,
+        userInfo: null
     },
 
     toChannelDetail(e) {
@@ -83,9 +84,11 @@ Page({
         app.watch("parkData", this.watchBack);
         app.watch("channelData", this.watchBack);
         let scrollHeight = app.globalData.pgHeight - 60;
+        const userInfo = wx.getStorageSync("userInfo") || { manage: "" };
         this.setData({
             height: app.globalData.pgHeight,
             scrollHeight,
+            userInfo
         });
     },
     onShow() {
