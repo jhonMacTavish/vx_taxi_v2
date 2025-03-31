@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/channelDetail/channelDetail",
     "pages/announce/announce",
     "pages/airportInfo/airportInfo",
     "pages/eligibility/eligibility",
@@ -13,7 +12,8 @@
     "pages/mine/mine",
     "pages/report/report",
     "pages/eligibtDetial/eligibtDetial",
-    "pages/carOrder/carOrder"
+    "pages/carOrder/carOrder",
+    "pages/channelDetail/channelDetail"
   ],
   "permission": {
     "scope.userLocation": {

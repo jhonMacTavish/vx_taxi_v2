@@ -1,2 +1,51 @@
 <!--pages/channelDetail/channelDetail.wxml-->
-<text>pages/channelDetail/channelDetail.wxml</text>
+<view class="container_bg">
+    <view class="container" style="height: {{height}}px;">
+        <bltboard></bltboard>
+        <view class="table-box">
+            <!-- 表头 -->
+            <!-- <view class="tr header">
+                <view class="th col1">序号</view>
+                <view class="th col2">车牌</view>
+                <view class="th col3">入池时间</view>
+            </view> -->
+            <!-- 表格内容 -->
+            <!-- <block wx:for="{{listData}}" wx:key="index">
+                <view class="tr {{index % 2 === 0 ? 'even' : 'odd'}}">
+                    <view class="td col1">{{index + 1}}</view>
+                    <view class="td col2">{{item.CAR_ID}}</view>
+                    <view class="td col3">{{item.TERMINAL_IN_TIME}}</view>
+                </view>
+            </block> -->
+            <swiper
+                indicator-dots="true"
+                current="{{current.page}}"
+                bindchange="onSwiperChange"
+                style="height: 100%"
+            >
+                <block wx:for="{{listData}}" wx:key="index">
+                    <swiper-item>
+                        <scroll-view
+                            scroll-y="true"
+                            style="height: 100%"
+                            scroll-into-view="{{toView}}"
+                            scroll-top="{{scrollTop}}"
+                        >
+                            <view
+                                class="tr {{index % 2 === 0 ? 'even' : 'odd'}}"
+                                wx:for="{{listData[index]}}"
+                                wx:key="index"
+                            >
+                                <text class="td col1">{{index + 1}}</text>
+                                <text class="td col2">{{item.CAR_ID}}</text>
+                                <text class="td col3"
+                                    >{{item.TERMINAL_IN_TIME}}</text
+                                >
+                            </view>
+                        </scroll-view>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+    </view>
+</view>

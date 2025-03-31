@@ -78,6 +78,8 @@ scroll-view {
 }
 
 .content_item {
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
   margin: 2% 0;
   height: 15%;
@@ -117,6 +119,10 @@ scroll-view {
   position: relative;
   top: -4rpx;
   margin-left: 20rpx;
+}
+
+.progress-box{
+  display: flex;
 }
 
 .progress {

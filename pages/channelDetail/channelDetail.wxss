@@ -1,1 +1,52 @@
 /* pages/channelDetail/channelDetail.wxss */
+/* pages/table/table.wxss */
+.table-box {
+  width: 96%;
+  height: 100%;
+  margin: 20rpx auto;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.tr {
+  display: flex;
+  height: 72rpx;
+  align-items: center;
+}
+
+.header {
+  background: #409EFF;
+  color: white;
+}
+
+.th, .td {
+  text-align: center;
+  padding: 10rpx;
+  min-width: 0;
+  word-break: break-all;
+}
+
+.col1 {
+  flex: 0.5;
+}
+
+.col2{
+  flex: 1;
+}
+
+.col3 {
+  flex: 2;
+}
+
+.th {
+  font-weight: bold;
+}
+
+.even {
+  background: #f5f7fa;
+}
+
+.odd {
+  background: white;
+}
