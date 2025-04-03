@@ -124,7 +124,8 @@ Page({
                 method: "GET",
                 success(res) {
                     console.log(res.data);
-                    if (res.data.length) {
+                    try {
+                      if (res.data.process.length) {
                         let data = res.data.process[0];
                         let processid = data.id;
                         console.log(data);
@@ -204,6 +205,9 @@ Page({
                         that.setData({
                             convoy: [],
                         });
+                    }
+                    } catch (error) {
+                      console.log(error);
                     }
                 },
             });
