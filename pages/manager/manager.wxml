@@ -38,7 +38,7 @@
               <image class="select_img  {{showT1[index]&&'select_img_rotate'}}" src='../../imgs/向左.png'></image>
             </view>
             <view class='option_box' style='height: {{showT1[index]?(convoyItem.carList.length > 10? 600: convoyItem.carList.length * 60):0}}rpx;'>
-              <text class='option' wx:for='{{convoyT1[index].carList}}' wx:key='index' style="color: {{item.terminalInTime?'green':'black'}};">{{item.order}} {{item.carId}}</text>
+              <text class='option' wx:for='{{convoyT1[index].carList}}' wx:key='index' style="color: {{item.terminalInTime?'green':'black'}};">{{item.order}} {{item.carId}} /{{item.poolInOrder}}</text>
             </view>
           </view>
         </scroll-view>
@@ -52,7 +52,7 @@
               <image class="select_img  {{showT2[index]&&'select_img_rotate'}}" src='../../imgs/向左.png'></image>
             </view>
             <view class='option_box' style='height: {{showT2[index]?(convoyItem.carList.length > 10? 600: convoyItem.carList.length * 60):0}}rpx;'>
-              <text class='option' wx:for='{{convoyT2[index].carList}}' wx:key='index' style="color: {{item.terminalInTime?'green':'black'}};">{{item.order}} {{item.carId}}</text>
+              <text class='option' wx:for='{{convoyT2[index].carList}}' wx:key='index' style="color: {{item.terminalInTime?'green':'black'}};">{{item.order}} {{item.carId}} /{{item.poolInOrder}}</text>
             </view>
           </view>
         </scroll-view>

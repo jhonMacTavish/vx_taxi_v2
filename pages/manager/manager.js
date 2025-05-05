@@ -36,11 +36,11 @@ Page({
     const that = this;
     let height = app.globalData.pgHeight
     this.getData();
-    const timer = setInterval(() => {
-      // that.getData();
-    }, 5000);
+    // const timer = setInterval(() => {
+    //   // that.getData();
+    // }, 5000);
     this.setData({
-      height, timer
+      height
     });
   },
 
