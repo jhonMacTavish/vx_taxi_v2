@@ -78,25 +78,46 @@ Page({
             success(res) {
                 console.log(res.data);
                 try {
-                    let data = res.data.process;
+                    let data = res.data.process[0];
                     let processid = data.id;
                     const preCarList = res.data.carListTop;
                     const nextNo = res.data.endPoolOutOrder;
                     const myNo = res.data.poolInOrder;
                     console.log(nextNo, res.data.endPoolOutOrder);
-                    let arr = that.data.list;
+                    let arr = [
+                        {
+                            time: "没有时间记录",
+                            con: "蓄车场驶入时间",
+                        },
+                        {
+                            time: "没有时间记录",
+                            con: "蓄车场驶出时间",
+                        },
+                        {
+                            time: "没有时间记录",
+                            con: "航站楼驶入时间",
+                        },
+                        {
+                            time: "没有时间记录",
+                            con: "航站楼驶出时间",
+                        },
+                    ];
                     for (let i = 0; i < 4; i++) {
                         switch (i) {
                             case 0:
+                                arr[i].con = `${data.terminal}${arr[i].con}`;
                                 arr[i].time = data.poolInTime;
                                 break;
                             case 1:
+                                arr[i].con = `${data.terminal}${arr[i].con}`;
                                 arr[i].time = data.poolOutTime;
                                 break;
                             case 2:
+                                arr[i].con = `${data.terminal}${arr[i].con}`;
                                 arr[i].time = data.terminalInTime;
                                 break;
                             case 3:
+                                arr[i].con = `${data.terminal}${arr[i].con}`;
                                 arr[i].time = data.terminalOutTime;
                                 break;
                             default:
@@ -108,7 +129,7 @@ Page({
                         list: arr,
                         preCarList,
                         nextNo,
-                        myNo
+                        myNo,
                     });
                 } catch (error) {
                     console.log(error);
@@ -117,7 +138,7 @@ Page({
         });
         let timer = setInterval(function () {
             wx.request({
-                url: "https://tsms1.sctfia.com/car_process",
+                url: "https://tsms1.sctfia.com/car_process2",
                 data: {
                     carid,
                 },
@@ -125,89 +146,118 @@ Page({
                 success(res) {
                     console.log(res.data);
                     try {
-                      if (res.data.process.length) {
-                        let data = res.data.process[0];
-                        let processid = data.id;
-                        console.log(data);
-                        let arr = that.data.list;
-                        for (let i = 0; i < 4; i++) {
-                            switch (i) {
-                                case 0:
-                                    arr[i].time = data.poolInTime;
-                                    break;
-                                case 1:
-                                    arr[i].time = data.poolOutTime;
-                                    break;
-                                case 2:
-                                    arr[i].time = data.terminalInTime;
-                                    break;
-                                case 3:
-                                    arr[i].time = data.terminalOutTime;
-                                    break;
-                                default:
-                                    break;
+                        if (res.data.process.length) {
+                            let data = res.data.process[0];
+                            let processid = data.id;
+                            console.log(data);
+                            let arr = [
+                                {
+                                    time: "没有时间记录",
+                                    con: "蓄车场驶入时间",
+                                },
+                                {
+                                    time: "没有时间记录",
+                                    con: "蓄车场驶出时间",
+                                },
+                                {
+                                    time: "没有时间记录",
+                                    con: "航站楼驶入时间",
+                                },
+                                {
+                                    time: "没有时间记录",
+                                    con: "航站楼驶出时间",
+                                },
+                            ];
+                            for (let i = 0; i < 4; i++) {
+                                switch (i) {
+                                    case 0:
+                                        arr[
+                                            i
+                                        ].con = `${data.terminal}${arr[i].con}`;
+                                        arr[i].time = data.poolInTime;
+                                        break;
+                                    case 1:
+                                        arr[
+                                            i
+                                        ].con = `${data.terminal}${arr[i].con}`;
+                                        arr[i].time = data.poolOutTime;
+                                        break;
+                                    case 2:
+                                        arr[
+                                            i
+                                        ].con = `${data.terminal}${arr[i].con}`;
+                                        arr[i].time = data.terminalInTime;
+                                        break;
+                                    case 3:
+                                        arr[
+                                            i
+                                        ].con = `${data.terminal}${arr[i].con}`;
+                                        arr[i].time = data.terminalOutTime;
+                                        break;
+                                    default:
+                                        break;
+                                }
                             }
-                        }
-                        that.setData({
-                            list: arr,
-                            eligibility,
-                        });
-                        let eligibility = {};
-                        eligibility.pdInTime = data.pdInTime;
-                        if (data.pdInTime) {
-                            wx.request({
-                                url: "https://tsms1.sctfia.com/car_meter",
-                                data: {
-                                    processid,
-                                },
-                                method: "GET",
-                                success(res) {
-                                    // console.log(res.data);
-                                    if (res.data.length) {
-                                        let data = res.data.process_meter;
-                                        let itinerary = that.data.itinerary;
-                                        itinerary[0].time = data.timeGetOn;
-                                        itinerary[1].time = data.timeGetOff;
-                                        that.setData({
-                                            itinerary,
-                                            eligibility,
-                                        });
-                                    } else {
-                                        that.setData({
-                                            eligibility,
-                                        });
-                                    }
-                                },
+                            that.setData({
+                                list: arr,
+                                eligibility,
                             });
+                            let eligibility = {};
+                            eligibility.pdInTime = data.pdInTime;
+                            if (data.pdInTime) {
+                                wx.request({
+                                    url: "https://tsms1.sctfia.com/car_meter",
+                                    data: {
+                                        processid,
+                                    },
+                                    method: "GET",
+                                    success(res) {
+                                        // console.log(res.data);
+                                        if (res.data.length) {
+                                            let data = res.data.process_meter;
+                                            let itinerary = that.data.itinerary;
+                                            itinerary[0].time = data.timeGetOn;
+                                            itinerary[1].time = data.timeGetOff;
+                                            that.setData({
+                                                itinerary,
+                                                eligibility,
+                                            });
+                                        } else {
+                                            that.setData({
+                                                eligibility,
+                                            });
+                                        }
+                                    },
+                                });
+                            } else {
+                                // wx.request({
+                                //   url: 'https://tsms1.sctfia.com/batch_car_list',
+                                //   data: {
+                                //     carid
+                                //   },
+                                //   method: 'GET',
+                                //   success(res) {
+                                //     // console.log(res.data);
+                                //     if (res.data.length) {
+                                //       let carList = res.data.carList;
+                                //       that.setData({
+                                //         convoy: carList
+                                //       });
+                                //     } else {
+                                //       that.setData({
+                                //         convoy: []
+                                //       });
+                                //     }
+                                //   }
+                                // });
+                            }
                         } else {
-                            // wx.request({
-                            //   url: 'https://tsms1.sctfia.com/batch_car_list',
-                            //   data: {
-                            //     carid
-                            //   },
-                            //   method: 'GET',
-                            //   success(res) {
-                            //     // console.log(res.data);
-                            //     if (res.data.length) {
-                            //       let carList = res.data.carList;
-                            //       that.setData({
-                            //         convoy: carList
-                            //       });
-                            //     } else {
-                            //       that.setData({
-                            //         convoy: []
-                            //       });
-                            //     }
-                            //   }
-                            // });
+                            that.setData({
+                                convoy: [],
+                            });
                         }
-                    } else {
-                        that.setData({
-                            convoy: [],
-                        });
-                    }
                     } catch (error) {
-                      console.log(error);
+                        console.log(error);
                     }
                 },
             });

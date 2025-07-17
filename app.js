@@ -1,5 +1,6 @@
 // app.js
 import WxAuthUtils from "./utils/WxAuthUtils";
+// const url = 'https://tsms1.sctfia.com'
 
 App({
     data: {
@@ -44,6 +45,7 @@ App({
         // 获取设备信息
         wx.getSystemInfo({
             success: (result) => {
+              console.log(result);
                 this.globalData.width = result.windowWidth;
                 this.globalData.height = result.windowHeight;
                 this.globalData.pgHeight =
